@@ -28,8 +28,7 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getAllOrders());
     }
 
-    // orders are added to the priority tree automatically when created.
-    // this is here in case you need to (re)add one manually, e.g. after a restart.
+    // orders are added to the priority tree automatically when they are created this is here in case you need to readd one after doing any sort of restart
     @PostMapping("/add-to-priority-tree")
     public ResponseEntity<Order> addToPriorityTree(@RequestParam Long orderId) {
         Order order = orderService.addToPriorityTree(orderId);
